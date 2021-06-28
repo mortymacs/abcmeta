@@ -1,6 +1,6 @@
 # abstractmethod
 
-Python Abstract Method Decorator
+Python abstract method library with restrictions.
 
 This library provides a restricted way to validate abstract methods.
 The Python's default abstract method library only validates the methods
