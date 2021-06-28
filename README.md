@@ -38,7 +38,7 @@ class Drived(Base):
 
 And it will raise:
 
-```
+```python
 Traceback (most recent call last):
   File "/Workspaces/test.py", line 41, in <module>
     class Drived(Base):
@@ -54,6 +54,32 @@ AttributeError: Signature of the derived method is not the same as parent class:
 ?                                        ^ ^
 
 Derived method expected to return in 'typing.Dict[str, str]' type, but returns 'typing.List[str]'
+```
+
+For different parameter names:
+
+```python
+class Drived(Base):
+    def method_2(self, username: Text, age: int) -> List[Text]:
+        return {"name": "test"}
+```
+
+And it will raise:
+
+```python
+Traceback (most recent call last):
+  File "/home/mort/Workspaces/me/abcmethod/test.py", line 41, in <module>
+    class Drived(Base):
+  File "/usr/lib/python3.9/abc.py", line 85, in __new__
+    cls = super().__new__(mcls, name, bases, namespace, **kwargs)
+  File "/home/mort/Workspaces/me/abcmethod/abstractmethod/__init__.py", line 180, in __init_subclass__
+    raise AttributeError(
+AttributeError: Signature of the derived method is not the same as parent class:
+- method_2(self, name: str, age: int) -> Dict[str, str]
++ method_2(self, username: str, age: int) -> Dict[str, str]
+?                ++++
+
+Derived method expected to get name paramter, but gets username
 ```
 
 ### Issue
