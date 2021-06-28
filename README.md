@@ -11,6 +11,16 @@ All you need is to import 'ABCMeta' and 'abstractmethod' from this library.
 
 It works on both annotations and without annotations methods.
 
+### Installation
+
+You can install the package by `pip`:
+
+```bash
+$ pip install abcmethod
+```
+
+> Note: abcmethod supports Python3.6+.
+
 ### Quick start
 
 ```python
