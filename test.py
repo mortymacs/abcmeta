@@ -1,5 +1,5 @@
 """Unit test for abstractmethod library."""
-from typing import Dict, List, Text, Tuple
+from typing import Dict, Text, Tuple
 
 from abstractmethod import ABCMeta, abstractmethod
 

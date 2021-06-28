@@ -92,7 +92,7 @@ def _compare_signatures(source_method: Text, derived_method: Text) -> Optional[T
         Optional[Text]: comparision result in the 'diff' format.
     """
     if source_method == derived_method:
-        return
+        return None
 
     diff = ndiff(
         source_method.splitlines(keepends=True),
@@ -129,6 +129,7 @@ def abstractmethod(funcobj: Callable) -> Callable:
     return funcobj
 
 
+# pylint: disable=too-few-public-methods
 class ABCMeta(metaclass=BuiltinABCMeta):
     """Abstract base meta class."""
 
@@ -139,7 +140,7 @@ class ABCMeta(metaclass=BuiltinABCMeta):
         for name, obj in vars(cls.__base__).items():
 
             # Ignore uncallable methods.
-            if not isinstance(obj, Callable):
+            if not callable(obj):
                 continue
 
             # Ignore if it's not an abstract method.
@@ -177,7 +178,6 @@ class ABCMeta(metaclass=BuiltinABCMeta):
                     obj_method_signature, derived_method_signature
                 )
                 raise AttributeError(
-                    "Signature of the derived method is not the same as parent class:\r\n{}".format(
-                        _prepare_text_to_raise(diff, diff_details)
-                    )
+                    "Signature of the derived method is not the same as parent"
+                    " class:\r\n{}".format(_prepare_text_to_raise(diff, diff_details))
                 )
