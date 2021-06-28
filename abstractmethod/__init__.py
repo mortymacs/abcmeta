@@ -70,11 +70,11 @@ def _compare_signatures_details(
     for index, (param_name, param_type) in enumerate(source_method[1]):
         derived_param_name, derived_param_type = derived_method[1][index]
         if param_name != derived_param_name:
-            return "Derived method expected to get {} paramter, but gets {}".format(
+            return "Derived method expected to get '{}' paramter, but gets '{}'".format(
                 param_name, derived_param_name
             )
         if param_type != derived_param_type:
-            return "Derived method expected to get {}:{} paramter's type, but gets {}:{}".format(
+            return "Derived method expected to get '{}:{}' paramter's type, but gets '{}:{}'".format(
                 param_name, param_type, derived_param_name, derived_param_type
             )
 
@@ -154,7 +154,7 @@ class ABCMeta(metaclass=BuiltinABCMeta):
             # Make sure the derived class has implemented the abstract method.
             if name not in cls.__dict__:
                 raise AttributeError(
-                    "Derived class has not implemented {} method of the parent class.".format(
+                    "Derived class has not implemented '{}' method of the parent class.".format(
                         name
                     )
                 )
