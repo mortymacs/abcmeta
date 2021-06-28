@@ -1,4 +1,4 @@
-# abstractmethod
+# abcmethod
 
 Python abstract method library with restrictions.
 
@@ -16,7 +16,7 @@ It works on both annotations and without annotations methods.
 ```python
 from typing import Dict, Text
 
-from abstractmethod import ABCMeta, abstractmethod
+from abcmethod import ABCMeta, abstractmethod
 
 
 class Base(ABCMeta):
@@ -52,7 +52,7 @@ Traceback (most recent call last):
     class Drived(Base):
   File "/usr/lib/python3.9/abc.py", line 85, in __new__
     cls = super().__new__(mcls, name, bases, namespace, **kwargs)
-  File "/abcmethod/abstractmethod.py", line 179, in __init_subclass__
+  File "/abcmethod/__init__.py", line 179, in __init_subclass__
     raise AttributeError(
 AttributeError: Signature of the derived method is not the same as parent class:
 - method_2(self, name: str, age: int) -> Dict[str, str]
@@ -76,11 +76,11 @@ And it will raise:
 
 ```python
 Traceback (most recent call last):
-  File "/home/mort/Workspaces/me/abcmethod/test.py", line 41, in <module>
+  File "/Workspaces/test.py", line 41, in <module>
     class Drived(Base):
   File "/usr/lib/python3.9/abc.py", line 85, in __new__
     cls = super().__new__(mcls, name, bases, namespace, **kwargs)
-  File "/home/mort/Workspaces/me/abcmethod/abstractmethod/__init__.py", line 180, in __init_subclass__
+  File "/abcmethod/__init__.py", line 180, in __init_subclass__
     raise AttributeError(
 AttributeError: Signature of the derived method is not the same as parent class:
 - method_2(self, name: str, age: int) -> Dict[str, str]
@@ -92,7 +92,7 @@ Derived method expected to get name paramter, but gets username
 
 ### Issue
 
-If you're faced with a problem, please file an [issue](https://github.com/mortymacs/abstractmethod/issues/new) on Github.
+If you're faced with a problem, please file an [issue](https://github.com/mortymacs/abcmethod/issues/new) on Github.
 
 
 ### Contribute

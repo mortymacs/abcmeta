@@ -1,7 +1,7 @@
-"""Unit test for abstractmethod library."""
+"""Unit test for abcmethod library."""
 from typing import Dict, Text, Tuple
 
-from abstractmethod import ABCMeta, abstractmethod
+from abcmethod import ABCMeta, abstractmethod
 
 
 class Parent(ABCMeta):
