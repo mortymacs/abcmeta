@@ -9,6 +9,8 @@ What this library provides is apart from that validation it provides
 validations over the method's signature.
 All you need is to import 'ABCMeta' and 'abstractmethod' from this library.
 
+It works on both annotations and without annotations methods.
+
 ### Quick start
 
 ```python
@@ -22,10 +24,16 @@ class Base(ABCMeta):
     def method_2(self, name: Text, age: int) -> Dict[Text, Text]:
         """Abstract method."""
 
+    @abstractmethod
+    def method_3(self, name, age):
+        """Abstract method."""
 
 class Drived(Base):
     def method_2(self, name: Text, age: int) -> Dict[Text, Text]:
         return {"name": "test"}
+
+    def method_3(self, name, age):
+        pass
 ```
 
 If you put a different signature, it will raise an error with 'diff' format with hints about what you've missed:
