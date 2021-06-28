@@ -27,16 +27,16 @@ jobs:
         python -m pip install flake8 pylint black
     - name: Syntax check
       run: |
-        python -m py_compile abstractmethod/__init__.py
+        python -m py_compile abcmethod/__init__.py
     - name: Lint with flake8
       run: |
-        flake8 abstractmethod/
+        flake8 abcmethod/
     - name: Lint with black
       run: |
-        black -C abstractmethod/
+        black -C abcmethod/
     - name: Lint with pylint
       run: |
-        pylint abstractmethod/
+        pylint abcmethod/
     - name: Test
       run: |
         python test.py
