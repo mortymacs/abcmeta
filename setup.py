@@ -4,15 +4,15 @@ with open("README.md", "r") as f:
     long_description = f.read()
 
 setup(
-    name="abstractmethod",
+    name="abcmethod",
     version="1.0.0",
     author="Morteza NourelahiAlamdari",
     author_email="m@0t1.me",
     description="Python abstract method library with restrictions.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/mortymacs/abstractmethod",
-    project_urls={"Bug Tracker": "https://github.com/mortymacs/abstractmethod/issues"},
+    url="https://github.com/mortymacs/abcmethod",
+    project_urls={"Bug Tracker": "https://github.com/mortymacs/abcmethod/issues"},
     classifiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.9",
