@@ -74,8 +74,11 @@ def _compare_signatures_details(
                 param_name, derived_param_name
             )
         if param_type != derived_param_type:
-            return "Derived method expected to get '{}:{}' paramter's type, but gets '{}:{}'".format(
-                param_name, param_type, derived_param_name, derived_param_type
+            return (
+                "Derived method expected to get '{}:{}' paramter's type,"
+                " but gets '{}:{}'".format(
+                    param_name, param_type, derived_param_name, derived_param_type
+                )
             )
 
     return "Check comparision result."
