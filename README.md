@@ -108,3 +108,7 @@ If you're faced with a problem, please file an [issue](https://github.com/mortym
 ### Contribute
 
 You're always welcome to contribute to the project! Please file an issue and send your great PR.
+
+### License
+
+Please read the [LICENSE](./LICENSE) file.

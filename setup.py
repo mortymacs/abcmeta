@@ -11,6 +11,7 @@ setup(
     description="Python abstract method library with restrictions.",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    license="AGPLv3",
     url="https://github.com/mortymacs/abcmethod",
     project_urls={"Bug Tracker": "https://github.com/mortymacs/abcmethod/issues"},
     classifiers=[
