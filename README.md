@@ -7,7 +7,7 @@ The Python's default abstract method library only validates the methods
 that exist in the derived classes and nothing else.
 What this library provides is apart from that validation it provides
 validations over the method's signature.
-All you need is to import 'ABCMeta' and 'abstractmethod' from this library.
+All you need is to import `ABCMeta` and `abstractmethod` from this library.
 
 It works on both annotations and without annotations methods.
 
