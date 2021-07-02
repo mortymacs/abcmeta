@@ -1,6 +1,6 @@
-# abcmethod
+# abcmeta
 
-Python abstract method library with restrictions.
+Python meta class and abstract method library with restrictions.
 
 This library provides a restricted way to validate abstract methods.
 The Python's default abstract method library only validates the methods
@@ -16,17 +16,17 @@ It works on both annotations and without annotations methods.
 You can install the package by `pip`:
 
 ```bash
-$ pip install abcmethod
+$ pip install abcmeta
 ```
 
-> Note: abcmethod supports Python3.6+.
+> Note: abcmeta supports Python3.6+.
 
 ### Quick start
 
 ```python
 from typing import Dict, Text
 
-from abcmethod import ABCMeta, abstractmethod
+from abcmeta import ABCMeta, abstractmethod
 
 
 class Base(ABCMeta):
@@ -62,7 +62,7 @@ Traceback (most recent call last):
     class Drived(Base):
   File "/usr/lib/python3.9/abc.py", line 85, in __new__
     cls = super().__new__(mcls, name, bases, namespace, **kwargs)
-  File "/abcmethod/__init__.py", line 179, in __init_subclass__
+  File "/abcmeta/__init__.py", line 179, in __init_subclass__
     raise AttributeError(
 AttributeError: Signature of the derived method is not the same as parent class:
 - method_2(self, name: str, age: int) -> Dict[str, str]
@@ -90,7 +90,7 @@ Traceback (most recent call last):
     class Drived(Base):
   File "/usr/lib/python3.9/abc.py", line 85, in __new__
     cls = super().__new__(mcls, name, bases, namespace, **kwargs)
-  File "/abcmethod/__init__.py", line 180, in __init_subclass__
+  File "/abcmeta/__init__.py", line 180, in __init_subclass__
     raise AttributeError(
 AttributeError: Signature of the derived method is not the same as parent class:
 - method_2(self, name: str, age: int) -> Dict[str, str]
@@ -102,7 +102,7 @@ Derived method expected to get name paramter, but gets username
 
 ### Issue
 
-If you're faced with a problem, please file an [issue](https://github.com/mortymacs/abcmethod/issues/new) on Github.
+If you're faced with a problem, please file an [issue](https://github.com/mortymacs/abcmeta/issues/new) on Github.
 
 
 ### Contribute

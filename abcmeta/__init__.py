@@ -1,4 +1,4 @@
-"""Abstract method.
+"""ABCMeta library implementation.
 
 This library provides a restricted way to validate abstract methods.
 The Python's default abstract method library only validates the methods

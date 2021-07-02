@@ -4,16 +4,16 @@ with open("README.md", "r") as f:
     long_description = f.read()
 
 setup(
-    name="abcmethod",
+    name="abcmeta",
     version="1.0.0",
     author="Morteza NourelahiAlamdari",
     author_email="m@0t1.me",
-    description="Python abstract method library with restrictions.",
+    description="Python meta class and abstract method library with restrictions.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     license="AGPLv3",
-    url="https://github.com/mortymacs/abcmethod",
-    project_urls={"Bug Tracker": "https://github.com/mortymacs/abcmethod/issues"},
+    url="https://github.com/mortymacs/abcmeta",
+    project_urls={"Bug Tracker": "https://github.com/mortymacs/abcmeta/issues"},
     classifiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.9",

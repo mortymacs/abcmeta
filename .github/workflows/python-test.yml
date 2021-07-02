@@ -27,16 +27,16 @@ jobs:
         python -m pip install flake8 pylint black
     - name: Syntax check
       run: |
-        python -m py_compile abcmethod/__init__.py
+        python -m py_compile abcmeta/__init__.py
     - name: Lint with flake8
       run: |
-        flake8 abcmethod/
+        flake8 abcmeta/
     - name: Lint with black
       run: |
-        black -C abcmethod/
+        black -C abcmeta/
     - name: Lint with pylint
       run: |
-        pylint abcmethod/
+        pylint abcmeta/
     - name: Test
       run: |
         python test.py
