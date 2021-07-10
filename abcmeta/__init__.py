@@ -157,8 +157,9 @@ class ABCMeta(metaclass=BuiltinABCMeta):
             # Make sure the derived class has implemented the abstract method.
             if name not in cls.__dict__:
                 raise AttributeError(
-                    "Derived class has not implemented '{}' method of the parent class.".format(
-                        name
+                    "Derived class '{}' has not implemented '{}' method of the"
+                    " parent class '{}'.".format(
+                        cls.__name__, name, cls.__base__.__name__
                     )
                 )
 
