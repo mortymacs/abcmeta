@@ -4,7 +4,7 @@ from typing import Dict, Text, Tuple
 from abcmeta import ABCMeta, abstractmethod
 
 
-class Parent(ABCMeta):
+class ABCMetaParent(ABCMeta):
     @abstractmethod
     def method_1(self, name, age):
         pass
@@ -21,7 +21,7 @@ class Parent(ABCMeta):
         """Abstract method."""
 
 
-class Derived(Parent):
+class ABCMetaDerived(ABCMetaParent):
     def method_1(self, name, age):
         pass
 
