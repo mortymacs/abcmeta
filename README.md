@@ -1,5 +1,10 @@
 # abcmeta
 
+[![PyPi version](https://badgen.net/pypi/v/abcmeta/)](https://pypi.com/project/abcmeta)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/abcmeta.svg)](https://pypi.python.org/pypi/abcmeta/)
+[![PyPI version fury.io](https://badge.fury.io/py/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+[![PyPI download month](https://img.shields.io/pypi/dm/abcmeta.svg)](https://pypi.python.org/pypi/abcmeta/)
+
 Python meta class and abstract method library with restrictions.
 
 This library provides a restricted way to validate abstract methods.
