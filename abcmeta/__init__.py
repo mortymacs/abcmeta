@@ -13,7 +13,7 @@ from abc import abstractmethod as builtin_abstractmethod
 from difflib import ndiff
 from typing import Any, Callable, List, Optional, Text, Tuple, Type
 
-__all__ = ["ABCMeta", "abstractmethod"]
+__all__ = ["ABC", "abstractmethod"]
 
 
 def _get_signature(method: Callable) -> Tuple[Type, List[Tuple[Text, Type]], Text]:
@@ -133,8 +133,8 @@ def abstractmethod(funcobj: Callable) -> Callable:
 
 
 # pylint: disable=too-few-public-methods
-class ABCMeta(metaclass=BuiltinABCMeta):
-    """Abstract base meta class."""
+class ABC(metaclass=BuiltinABCMeta):
+    """Abstract base class"""
 
     def __init_subclass__(cls):
         """Python built-in method."""

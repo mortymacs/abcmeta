@@ -13,12 +13,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ['3.6', '3.7', '3.8', '3.9', '3.10']
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
@@ -36,7 +36,12 @@ jobs:
         black -C abcmeta/
     - name: Lint with pylint
       run: |
-        pylint abcmeta/
+        pylint --disable=consider-using-f-string abcmeta/
     - name: Test
       run: |
-        python test.py
+        PYTHONPATH=. python tests/correct_class_test.py
+        PYTHONPATH=. python tests/incorrect_class_1_test.py |& grep -F "AttributeError: Derived class 'ABCDerived' has not implemented 'method_1' method of the parent class 'ABCParent'"
+        PYTHONPATH=. python tests/incorrect_class_2_test.py |& grep -F "Derived method expected to get 3 parameters but gets 2"
+        PYTHONPATH=. python tests/incorrect_class_3_test.py |& grep -F "Derived method expected to get 'name:<class 'str'>' paramter's type, but gets 'name:<class 'int'>'"
+        PYTHONPATH=. python tests/incorrect_class_4_test.py |& grep -F "Derived method expected to get 'name' paramter, but gets 'family'"
+        PYTHONPATH=. python tests/incorrect_class_5_test.py |& grep -F "Derived method expected to return in 'typing.Dict[str, str]' type, but returns 'typing.Dict[str, int]'"
