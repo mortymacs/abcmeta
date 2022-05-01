@@ -1,10 +1,13 @@
-"""Unit test for abcmeta library."""
+"""Test for abcmeta library.
+
+incompleted derived class.
+"""
 from typing import Dict, Text, Tuple
 
-from abcmeta import ABCMeta, abstractmethod
+from abcmeta import ABC, abstractmethod
 
 
-class ABCMetaParent(ABCMeta):
+class ABCParent(ABC):
     @abstractmethod
     def method_1(self, name, age):
         pass
@@ -21,12 +24,9 @@ class ABCMetaParent(ABCMeta):
         """Abstract method."""
 
 
-class ABCMetaDerived(ABCMetaParent):
-    def method_1(self, name, age):
+class ABCDerived(ABCParent):
+    def method(self, name):
         pass
-
-    def method_2(self, name: Text, age: int) -> Dict[Text, Text]:
-        return {"name": "test"}
 
     def method_4(self, name: Text, age: int) -> Tuple[Text, Text]:
         return ("name", "test")
