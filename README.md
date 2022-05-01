@@ -31,10 +31,10 @@ $ pip install abcmeta
 ```python
 from typing import Dict, Text
 
-from abcmeta import ABCMeta, abstractmethod
+from abcmeta import ABC, abstractmethod
 
 
-class Base(ABCMeta):
+class Base(ABC):
     @abstractmethod
     def method_2(self, name: Text, age: int) -> Dict[Text, Text]:
         """Abstract method."""
