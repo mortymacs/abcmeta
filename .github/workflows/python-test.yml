@@ -40,16 +40,9 @@ jobs:
     - name: Test
       run: |
         PYTHONPATH=. python tests/correct_class_test.py
-        PYTHONPATH=. python tests/incorrect_class_1_test.py |& grep -F $TEST_1
-        PYTHONPATH=. python tests/incorrect_class_2_test.py |& grep -F $TEST_2
-        PYTHONPATH=. python tests/incorrect_class_3_test.py |& grep -F $TEST_3
-        PYTHONPATH=. python tests/incorrect_class_4_test.py |& grep -F $TEST_4
-        PYTHONPATH=. python tests/incorrect_class_5_test.py |& grep -F $TEST_5
-        PYTHONPATH=. python tests/multiple_incorrect_methods_test.py |& grep -cG $TEST_1\|$TEST_MULTI\|$TEST_4 | grep 3
-        env:
-          TEST_1: "AttributeError: Derived class 'ABCDerived' has not implemented 'method_1' method of the parent class 'ABCParent'"
-          TEST_2: "Derived method expected to get 3 parameters but gets 2"
-          TEST_3: "Derived method expected to get 'name:<class 'str'>' paramter's type, but gets 'name:<class 'int'>'"
-          TEST_4: "Derived method expected to get 'name' paramter, but gets 'family'"
-          TEST_5: "Derived method expected to return in 'typing.Dict[str, str]' type, but returns 'typing.Dict[str, int]'"
-          TEST_MULTI: "Derived method expected to get 'name:<class 'str'>' paramter's type, but gets 'name:<class 'int'>'"
+        PYTHONPATH=. python tests/incorrect_class_1_test.py |& grep -F "AttributeError: Derived class 'ABCDerived' has not implemented 'method_1' method of the parent class 'ABCParent'"
+        PYTHONPATH=. python tests/incorrect_class_2_test.py |& grep -F "Derived method expected to get 3 parameters but gets 2"
+        PYTHONPATH=. python tests/incorrect_class_3_test.py |& grep -F "Derived method expected to get 'name:<class 'str'>' paramter's type, but gets 'name:<class 'int'>'"
+        PYTHONPATH=. python tests/incorrect_class_4_test.py |& grep -F "Derived method expected to get 'name' paramter, but gets 'family'"
+        PYTHONPATH=. python tests/incorrect_class_5_test.py |& grep -F "Derived method expected to return in 'typing.Dict[str, str]' type, but returns 'typing.Dict[str, int]'"
+        PYTHONPATH=. python tests/multiple_incorrect_methods_test.py |& grep -cG "AttributeError: Derived class 'ABCDerived' has not implemented 'method_1' method of the parent class 'ABCParent'\|Derived method expected to get 'name:<class 'str'>' paramter's type, but gets 'name:<class 'int'>'\|Derived method expected to get 'name' paramter, but gets 'family'" | grep 3
