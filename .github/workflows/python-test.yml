@@ -39,16 +39,18 @@ jobs:
         pylint --disable=consider-using-f-string abcmeta/
     - name: Test
       run: |
-        TEST_1="AttributeError: Derived class 'ABCDerived' has not implemented 'method_1' method of the parent class 'ABCParent'"
-        TEST_2="Derived method expected to get 3 parameters but gets 2"
-        TEST_3="Derived method expected to get 'name:<class 'str'>' paramter's type, but gets 'name:<class 'int'>'"
-        TEST_4="Derived method expected to get 'name' paramter, but gets 'family'"
-        TEST_5="Derived method expected to return in 'typing.Dict[str, str]' type, but returns 'typing.Dict[str, int]'"
-        TEST_MULTI="$TEST_1\|Derived method expected to get 'name:<class 'str'>' paramter's type, but gets 'name:<class 'int'>'\|$TEST_4"
         PYTHONPATH=. python tests/correct_class_test.py
         PYTHONPATH=. python tests/incorrect_class_1_test.py |& grep -F $TEST_1
         PYTHONPATH=. python tests/incorrect_class_2_test.py |& grep -F $TEST_2
         PYTHONPATH=. python tests/incorrect_class_3_test.py |& grep -F $TEST_3
         PYTHONPATH=. python tests/incorrect_class_4_test.py |& grep -F $TEST_4
         PYTHONPATH=. python tests/incorrect_class_5_test.py |& grep -F $TEST_5
-        PYTHONPATH=. python tests/multiple_incorrect_methods_test.py |& grep -cG $TEST_MULTI | grep 3
+        PYTHONPATH=. python tests/multiple_incorrect_methods_test.py |& grep -cG $TEST_1\|$TEST_MULTI\|$TEST_4 | grep 3
+        env:
+          First_Name: Mona
+          TEST_1: AttributeError: Derived class 'ABCDerived' has not implemented 'method_1' method of the parent class 'ABCParent'
+          TEST_2: Derived method expected to get 3 parameters but gets 2
+          TEST_3: Derived method expected to get 'name:<class 'str'>' paramter's type, but gets 'name:<class 'int'>'
+          TEST_4: Derived method expected to get 'name' paramter, but gets 'family'
+          TEST_5: Derived method expected to return in 'typing.Dict[str, str]' type, but returns 'typing.Dict[str, int]'
+          TEST_MULTI: Derived method expected to get 'name:<class 'str'>' paramter's type, but gets 'name:<class 'int'>'
