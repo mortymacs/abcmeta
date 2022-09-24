@@ -140,6 +140,7 @@ class ABC(metaclass=BuiltinABCMeta):
         """Python built-in method."""
         super().__init_subclass__()
 
+        errors = []
         for name, obj in vars(cls.__base__).items():
 
             # Ignore uncallable methods.
@@ -156,12 +157,13 @@ class ABC(metaclass=BuiltinABCMeta):
 
             # Make sure the derived class has implemented the abstract method.
             if name not in cls.__dict__:
-                raise AttributeError(
+                errors.append(
                     "Derived class '{}' has not implemented '{}' method of the"
                     " parent class '{}'.".format(
                         cls.__name__, name, cls.__base__.__name__
                     )
                 )
+                continue
 
             derived_method = getattr(cls, name)
 
@@ -181,7 +183,10 @@ class ABC(metaclass=BuiltinABCMeta):
                 diff_details = _compare_signatures_details(
                     obj_method_signature, derived_method_signature
                 )
-                raise AttributeError(
+                errors.append(
                     "Signature of the derived method is not the same as parent"
                     " class:\r\n{}".format(_prepare_text_to_raise(diff, diff_details))
                 )
+
+        if errors:
+            raise AttributeError("\n\n".join(errors))
