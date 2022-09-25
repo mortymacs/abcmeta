@@ -23,6 +23,11 @@ class ABCParent(ABC):
     def method_4(self, name: Text, age: int) -> Tuple[Text, Text]:
         """Abstract method."""
 
+    @abstractmethod
+    def method_5(self, name: Text, age: int) -> Tuple[Text, Text]:
+        """Abstract method."""
+
+
 
 class ABCDerived(ABCParent):
     def method_(self, name, age): # Intentional typo (Same error as Test 1)
@@ -33,3 +38,7 @@ class ABCDerived(ABCParent):
 
     def method_4(self, family: Text, age: int) -> Tuple[Text, Text]:  # Test 4
         return ("name", "test")
+
+    def method_5(self, name: Text, age: int) -> str:
+        """Abstract method."""
+

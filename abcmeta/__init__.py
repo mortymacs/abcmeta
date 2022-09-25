@@ -11,6 +11,7 @@ import inspect
 from abc import ABCMeta as BuiltinABCMeta
 from abc import abstractmethod as builtin_abstractmethod
 from difflib import ndiff
+from itertools import count
 from typing import Any, Callable, List, Optional, Text, Tuple, Type
 
 __all__ = ["ABC", "abstractmethod"]
@@ -81,7 +82,7 @@ def _compare_signatures_details(
                 )
             )
 
-    return "Check comparision result."
+    return "Check comparision result"
 
 
 def _compare_signatures(source_method: Text, derived_method: Text) -> Optional[Text]:
@@ -101,7 +102,7 @@ def _compare_signatures(source_method: Text, derived_method: Text) -> Optional[T
         source_method.splitlines(keepends=True),
         derived_method.splitlines(keepends=True),
     )
-    return "\n".join(diff)
+    return "\r\n".join(diff)
 
 
 def _prepare_text_to_raise(diff: Text, diff_details: Text) -> Text:
@@ -141,6 +142,7 @@ class ABC(metaclass=BuiltinABCMeta):
         super().__init_subclass__()
 
         errors = []
+        error_count = count(1)
         for name, obj in vars(cls.__base__).items():
 
             # Ignore uncallable methods.
@@ -158,9 +160,10 @@ class ABC(metaclass=BuiltinABCMeta):
             # Make sure the derived class has implemented the abstract method.
             if name not in cls.__dict__:
                 errors.append(
+                    "{}: incorrect implementation.\r\n"
                     "Derived class '{}' has not implemented '{}' method of the"
-                    " parent class '{}'.".format(
-                        cls.__name__, name, cls.__base__.__name__
+                    " parent class '{}'".format(
+                        next(error_count), cls.__name__, name, cls.__base__.__name__
                     )
                 )
                 continue
@@ -184,9 +187,12 @@ class ABC(metaclass=BuiltinABCMeta):
                     obj_method_signature, derived_method_signature
                 )
                 errors.append(
+                    "{}: incorrect signature.\r\n"
                     "Signature of the derived method is not the same as parent"
-                    " class:\r\n{}".format(_prepare_text_to_raise(diff, diff_details))
+                    " class:\r\n{}".format(
+                        next(error_count), _prepare_text_to_raise(diff, diff_details)
+                    )
                 )
 
         if errors:
-            raise AttributeError("\n\n".join(errors))
+            raise AttributeError("\n{}".format("\n\n".join(errors)))
