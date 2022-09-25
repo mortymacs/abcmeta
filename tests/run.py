@@ -2,6 +2,7 @@
 import os
 import pathlib
 import subprocess
+import sys
 
 BASE = pathlib.Path(__file__)
 os.environ["PYTHONPATH"] = BASE.parent.parent.as_posix()
@@ -16,6 +17,13 @@ def run_test(test_file: str, expected_output: str, expected_exit_code: int):
         stdout=subprocess.PIPE,
     )
     output = process.stderr.decode().replace("\r\n", "").replace("\n", "")
+
+    # We need to ignore spaces in Python 3.6 as it generates method signature
+    # without space, like "name:str" instead of "name: str".
+    if sys.version_info.minor == 6:
+        expected_output = expected_output.replace(" ", "")
+        output = output.replace(" ", "")
+
     assert process.returncode == expected_exit_code
     assert expected_output in output
 
