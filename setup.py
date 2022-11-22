@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="abcmeta",
-    version="2.1.0",
+    version="2.1.1",
     author="Morteza NourelahiAlamdari",
     author_email="m@0t1.me",
     description="Python meta class and abstract method library with restrictions.",
@@ -16,6 +16,7 @@ setup(
     project_urls={"Bug Tracker": "https://github.com/mortymacs/abcmeta/issues"},
     classifiers=[
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.8",
