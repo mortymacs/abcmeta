@@ -12,19 +12,19 @@ from abc import ABCMeta as BuiltinABCMeta
 from abc import abstractmethod as builtin_abstractmethod
 from difflib import ndiff
 from itertools import count
-from typing import Any, Callable, List, Optional, Text, Tuple, Type
+from typing import Any, Callable, List, Optional, Tuple, Type
 
 __all__ = ["ABC", "abstractmethod"]
 
 
-def _get_signature(method: Callable) -> Tuple[Type, List[Tuple[Text, Type]], Text]:
+def _get_signature(method: Callable) -> Tuple[Type, List[Tuple[str, Type]], str]:
     """Get a method signature.
 
     Args:
         method (Callable): a callable method.
 
     Returns:
-        Tuple[Type, List[Tuple[Text, Type]], Text]: the method signature.
+        Tuple[Type, List[Tuple[str, Type]], str]: the method signature.
     """
     method_signature = inspect.signature(method)
     method_parameters = []
@@ -41,17 +41,17 @@ def _get_signature(method: Callable) -> Tuple[Type, List[Tuple[Text, Type]], Tex
 
 
 def _compare_signatures_details(
-    source_method: Tuple[Type, List[Tuple[Text, Type]]],
-    derived_method: Tuple[Type, List[Tuple[Text, Type]]],
-) -> Text:
+    source_method: Tuple[Type, List[Tuple[str, Type]]],
+    derived_method: Tuple[Type, List[Tuple[str, Type]]],
+) -> str:
     """Compare source and derived methods and returns a diff.
 
     Args:
-        source_method (Tuple[Type, List[Tuple[Text, Type]]]): source method signature.
-        derived_method (Tuple[Type, List[Tuple[Text, Type]]]): derived method signature.
+        source_method (Tuple[Type, List[Tuple[str, Type]]]): source method signature.
+        derived_method (Tuple[Type, List[Tuple[str, Type]]]): derived method signature.
 
     Returns:
-        Text: comparision result in the 'diff' format.
+        str: comparision result in the 'diff' format.
     """
     # Check return type.
     if source_method[0] != derived_method[0]:
@@ -85,15 +85,15 @@ def _compare_signatures_details(
     return "Check comparision result"
 
 
-def _compare_signatures(source_method: Text, derived_method: Text) -> Optional[Text]:
+def _compare_signatures(source_method: str, derived_method: str) -> Optional[str]:
     """Compare source and derived methods and returns a diff.
 
     Args:
-        source_method (Text): source method signature.
-        derived_method (Text): derived method signature.
+        source_method (str): source method signature.
+        derived_method (str): derived method signature.
 
     Returns:
-        Optional[Text]: comparision result in the 'diff' format.
+        Optional[str]: comparision result in the 'diff' format.
     """
     if source_method == derived_method:
         return None
@@ -105,15 +105,15 @@ def _compare_signatures(source_method: Text, derived_method: Text) -> Optional[T
     return "\r\n".join(diff)
 
 
-def _prepare_text_to_raise(diff: Text, diff_details: Text) -> Text:
+def _prepare_text_to_raise(diff: str, diff_details: str) -> str:
     """It should prepare text for raising the error.
 
     Args:
-        diff (Text): comparision result.
-        diff_details (Text): comparision result details.
+        diff (str): comparision result.
+        diff_details (str): comparision result details.
 
     Returns:
-        Text: prepared text for raising the error.
+        str: prepared text for raising the error.
     """
     return "{}\r\n{}".format(diff, diff_details)
 
