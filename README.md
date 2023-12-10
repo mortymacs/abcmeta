@@ -1,9 +1,9 @@
 # abcmeta
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/mortymacs/abcmeta/Python%20package)](https://github.com/mortymacs/abcmeta/actions/workflows/python-test.yml)
-[![PyPi version](https://badgen.net/pypi/v/abcmeta/)](https://pypi.org/project/abcmeta)
-[![PyPI pyversions](https://img.shields.io/pypi/pyversions/abcmeta.svg)](https://pypi.python.org/pypi/abcmeta/)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mortymacs/abcmeta/python-test.yml?style=flat-square)](https://github.com/mortymacs/abcmeta/actions/workflows/python-test.yml)
+[![PyPi version](https://img.shields.io/pypi/v/abcmeta?style=flat-square)](https://pypi.org/project/abcmeta)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/abcmeta?style=flat-square)](https://pypi.python.org/pypi/abcmeta/)
 [![PyPI version fury.io](https://badge.fury.io/py/abcmeta.svg)](https://pypi.python.org/pypi/abcmeta/)
-[![PyPI download month](https://img.shields.io/pypi/dm/abcmeta.svg)](https://pypi.python.org/pypi/abcmeta/)
+[![PyPI download month](https://img.shields.io/pypi/dm/abcmeta?style=flat-square)](https://pypi.python.org/pypi/abcmeta/)
 
 Python meta class and abstract method library with restrictions.
 
