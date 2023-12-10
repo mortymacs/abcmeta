@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="abcmeta",
-    version="2.1.2",
+    version="2.2.0",
     author="Morteza NourelahiAlamdari",
     author_email="m@0t1.me",
     description="Python meta class and abstract method library with restrictions.",
@@ -26,5 +26,5 @@ setup(
         "Operating System :: OS Independent",
     ],
     packages=find_packages(),
-    python_requires=">=3.6",
+    python_requires=">=3.7",
 )
