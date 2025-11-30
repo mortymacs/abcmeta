@@ -1,3 +1,8 @@
+> ⚠️ **This project has moved!**
+>
+> This repository is no longer maintained. The project has been moved to **[https://git.sr.ht/~mortymacs/abcmeta](https://git.sr.ht/~mortymacs/abcmeta)**.
+> Please update your bookmarks and clone the new repository for the latest updates.
+
 # abcmeta
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mortymacs/abcmeta/python-test.yml?style=flat-square)](https://github.com/mortymacs/abcmeta/actions/workflows/python-test.yml)
 [![PyPi version](https://img.shields.io/pypi/v/abcmeta?style=flat-square)](https://pypi.org/project/abcmeta)
