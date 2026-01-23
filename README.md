@@ -1,6 +1,6 @@
 > ⚠️ **This project has moved!**
 >
-> This repository is no longer maintained. The project has been moved to **[https://git.sr.ht/~mortymacs/abcmeta](https://git.sr.ht/~mortymacs/abcmeta)**.
+> This repository is no longer maintained. The project has been moved to **[https://codeberg.org/mortymacs/abcmeta](https://codeberg.org/mortymacs/abcmeta)**.
 > Please update your bookmarks and clone the new repository for the latest updates.
 
 # abcmeta
